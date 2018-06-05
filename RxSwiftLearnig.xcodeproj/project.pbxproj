@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		65B312884213113DC2C559F6 /* Pods_RxSwiftLearnig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DEC4180A6E0EC86CA5F4C12 /* Pods_RxSwiftLearnig.framework */; };
+		BF16333320C6586A00A2870E /* Extension+PPT.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF16333220C6586A00A2870E /* Extension+PPT.swift */; };
 		BF46AC8F20BF9C5800075640 /* SupportCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF46AC8E20BF9C5800075640 /* SupportCode.swift */; };
 		BF46AC9120BFB51000075640 /* RELEASE.TXT in Resources */ = {isa = PBXBuildFile; fileRef = BF46AC9020BFB51000075640 /* RELEASE.TXT */; };
 		BF46AC9320BFB7E600075640 /* Extension+Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF46AC9220BFB7E600075640 /* Extension+Observable.swift */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		4DEC4180A6E0EC86CA5F4C12 /* Pods_RxSwiftLearnig.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftLearnig.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59E640A4187BB7CEA2A28CEF /* Pods-RxSwiftLearnig.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftLearnig.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxSwiftLearnig/Pods-RxSwiftLearnig.debug.xcconfig"; sourceTree = "<group>"; };
+		BF16333220C6586A00A2870E /* Extension+PPT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+PPT.swift"; sourceTree = "<group>"; };
 		BF46AC8E20BF9C5800075640 /* SupportCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportCode.swift; sourceTree = "<group>"; };
 		BF46AC9020BFB51000075640 /* RELEASE.TXT */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RELEASE.TXT; sourceTree = "<group>"; };
 		BF46AC9220BFB7E600075640 /* Extension+Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Observable.swift"; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				BF46AC9A20BFE96200075640 /* Extension+Filter.swift */,
 				BF46AC9C20BFFE2A00075640 /* Extension+Transform.swift */,
 				BFDBC91720C110FD002ED266 /* Extension+Combine.swift */,
+				BF16333220C6586A00A2870E /* Extension+PPT.swift */,
 			);
 			path = RxSwiftLearnig;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				BFEE800820BF9B4000F42C08 /* AppDelegate.swift in Sources */,
 				BF46AC9D20BFFE2A00075640 /* Extension+Transform.swift in Sources */,
 				BF46AC9B20BFE96200075640 /* Extension+Filter.swift in Sources */,
+				BF16333320C6586A00A2870E /* Extension+PPT.swift in Sources */,
 				BF46AC8F20BF9C5800075640 /* SupportCode.swift in Sources */,
 				BF46AC9320BFB7E600075640 /* Extension+Observable.swift in Sources */,
 				BFDBC91820C110FD002ED266 /* Extension+Combine.swift in Sources */,

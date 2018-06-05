@@ -13,13 +13,15 @@ class ViewController: NSViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-//    learnSubscribe()
-//    learnDisposingAndTerminating()
-//    learnTraits() // 🦍 INTERESTING!!
+    // MARK: - Learn
+//    learnObservables()
 //    learnFilter()
 //    learnSubject()
 //    learnTransforming()
-    learnCombine()
+//    learnCombine()
+    
+//    reflectOnReal()
+    shareObservable()
   }
   
   

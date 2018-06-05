@@ -10,7 +10,8 @@ import Foundation
 import RxSwift
 
 extension ViewController {
-  func learnCreatingObservables() {
+  func learnObservables() {
+    
     example(of: "[Create Observable] just, of, from") {
       let one = 1
       let two = 2
@@ -20,9 +21,7 @@ extension ViewController {
       let observable2 = Observable<Int>.of(one, two, three)
       let observable3 = Observable<Int>.from([one, two, three])
     }
-  }
-  
-  func learnSubscribe() {
+    
     example(of: "[Subscribe Observable]") {
       let one = 1
       let two = 2
@@ -70,9 +69,7 @@ extension ViewController {
           print(i)
         })
     }
-  }
-  
-  func learnDisposingAndTerminating() {
+
     example(of: "[dispose] cancel a subscription") {
       let observable = Observable.of("A", "B", "C")
       let subscription = observable.subscribe { print($0) }
@@ -104,9 +101,7 @@ extension ViewController {
         )
         .disposed(by: bag)
     }
-  }
-  
-  func learnTraits() {
+
     example(of: "[Trait - Single(~=Value) Completable(~=Bool)] explicit purpose") {
       
       class TextLoadAPI {
