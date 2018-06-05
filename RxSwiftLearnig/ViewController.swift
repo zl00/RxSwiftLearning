@@ -21,7 +21,9 @@ class ViewController: NSViewController {
 //    learnCombine()
     
 //    reflectOnReal()
-    shareObservable()
+//    shareObservable()
+    shareOperatorFilter()
+//    sharePitfalls()
   }
   
   
