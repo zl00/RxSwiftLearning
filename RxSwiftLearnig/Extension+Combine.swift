@@ -34,6 +34,8 @@ extension ViewController { // TODO: - Linda
           print(value)
         })
         .disposed(by: bag)
+      
+      
     }
     
     example(of: "concat") {

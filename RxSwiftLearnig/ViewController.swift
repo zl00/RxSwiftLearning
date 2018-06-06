@@ -22,7 +22,9 @@ class ViewController: NSViewController {
     
 //    reflectOnReal()
 //    shareObservable()
-    shareOperatorFilter()
+//    shareOperatorFilter()
+//    shareOperatorTransform()
+    shareOperatorCombine()
 //    sharePitfalls()
   }
   

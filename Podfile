@@ -4,6 +4,7 @@ target 'RxSwiftLearnig' do
   
   # Pods for RxSwiftLearnig
   pod 'RxSwift', '~> 4.0'
+  pod 'RxCocoa'
 end
 
 post_install do |installer|
