@@ -20,12 +20,19 @@ class ViewController: NSViewController {
 //    learnTransforming()
 //    learnCombine()
     
-//    reflectOnReal()
 //    shareObservable()
 //    shareOperatorFilter()
 //    shareOperatorTransform()
-    shareOperatorCombine()
+//    shareOperatorCombine()
 //    sharePitfalls()
+    
+//    reflectOnReal1()
+//    reflectOnReal2()
+//    linda_cold()
+    linda_subject()
+//    shareRetryWhen()
+//    linda_concat()
+//    linda_flatMap()
   }
   
   

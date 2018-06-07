@@ -15,6 +15,13 @@
 		BF46AC9520BFB82E00075640 /* Extension+Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF46AC9420BFB82E00075640 /* Extension+Subject.swift */; };
 		BF46AC9B20BFE96200075640 /* Extension+Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF46AC9A20BFE96200075640 /* Extension+Filter.swift */; };
 		BF46AC9D20BFFE2A00075640 /* Extension+Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF46AC9C20BFFE2A00075640 /* Extension+Transform.swift */; };
+		BF5A3B1E20C8D77000C10335 /* retryWhen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5A3B1D20C8D77000C10335 /* retryWhen.swift */; };
+		BF5A3B2020C8E9A500C10335 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5A3B1F20C8E9A500C10335 /* Error.swift */; };
+		BF5A3B2220C8F4C800C10335 /* concat&flatMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5A3B2120C8F4C800C10335 /* concat&flatMap.swift */; };
+		BF5A3B2420C8F72200C10335 /* kit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5A3B2320C8F72200C10335 /* kit.swift */; };
+		BF5A3B2620C906CB00C10335 /* reflectOnReal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5A3B2520C906CB00C10335 /* reflectOnReal.swift */; };
+		BF5A3B2820C914BE00C10335 /* observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5A3B2720C914BE00C10335 /* observable.swift */; };
+		BF5A3B2A20C91D7D00C10335 /* subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5A3B2920C91D7D00C10335 /* subject.swift */; };
 		BFDBC91820C110FD002ED266 /* Extension+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDBC91720C110FD002ED266 /* Extension+Combine.swift */; };
 		BFEE800820BF9B4000F42C08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEE800720BF9B4000F42C08 /* AppDelegate.swift */; };
 		BFEE800A20BF9B4000F42C08 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEE800920BF9B4000F42C08 /* ViewController.swift */; };
@@ -32,6 +39,13 @@
 		BF46AC9420BFB82E00075640 /* Extension+Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Subject.swift"; sourceTree = "<group>"; };
 		BF46AC9A20BFE96200075640 /* Extension+Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Filter.swift"; sourceTree = "<group>"; };
 		BF46AC9C20BFFE2A00075640 /* Extension+Transform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Transform.swift"; sourceTree = "<group>"; };
+		BF5A3B1D20C8D77000C10335 /* retryWhen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = retryWhen.swift; sourceTree = "<group>"; };
+		BF5A3B1F20C8E9A500C10335 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		BF5A3B2120C8F4C800C10335 /* concat&flatMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "concat&flatMap.swift"; sourceTree = "<group>"; };
+		BF5A3B2320C8F72200C10335 /* kit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kit.swift; sourceTree = "<group>"; };
+		BF5A3B2520C906CB00C10335 /* reflectOnReal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reflectOnReal.swift; sourceTree = "<group>"; };
+		BF5A3B2720C914BE00C10335 /* observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = observable.swift; sourceTree = "<group>"; };
+		BF5A3B2920C91D7D00C10335 /* subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = subject.swift; sourceTree = "<group>"; };
 		BFDBC91720C110FD002ED266 /* Extension+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Combine.swift"; sourceTree = "<group>"; };
 		BFEE800420BF9B3F00F42C08 /* RxSwiftLearnig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSwiftLearnig.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFEE800720BF9B4000F42C08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +101,7 @@
 				BF46AC8E20BF9C5800075640 /* SupportCode.swift */,
 				BFEE800720BF9B4000F42C08 /* AppDelegate.swift */,
 				BFEE800920BF9B4000F42C08 /* ViewController.swift */,
+				BF5A3B1F20C8E9A500C10335 /* Error.swift */,
 				BFEE800B20BF9B4100F42C08 /* Assets.xcassets */,
 				BFEE800D20BF9B4100F42C08 /* Main.storyboard */,
 				BFEE801020BF9B4100F42C08 /* Info.plist */,
@@ -98,6 +113,12 @@
 				BF46AC9C20BFFE2A00075640 /* Extension+Transform.swift */,
 				BFDBC91720C110FD002ED266 /* Extension+Combine.swift */,
 				BF16333220C6586A00A2870E /* Extension+SHARE.swift */,
+				BF5A3B2520C906CB00C10335 /* reflectOnReal.swift */,
+				BF5A3B2320C8F72200C10335 /* kit.swift */,
+				BF5A3B2720C914BE00C10335 /* observable.swift */,
+				BF5A3B2920C91D7D00C10335 /* subject.swift */,
+				BF5A3B2120C8F4C800C10335 /* concat&flatMap.swift */,
+				BF5A3B1D20C8D77000C10335 /* retryWhen.swift */,
 			);
 			path = RxSwiftLearnig;
 			sourceTree = "<group>";
@@ -228,11 +249,18 @@
 				BFEE800A20BF9B4000F42C08 /* ViewController.swift in Sources */,
 				BF46AC9520BFB82E00075640 /* Extension+Subject.swift in Sources */,
 				BFEE800820BF9B4000F42C08 /* AppDelegate.swift in Sources */,
+				BF5A3B2020C8E9A500C10335 /* Error.swift in Sources */,
 				BF46AC9D20BFFE2A00075640 /* Extension+Transform.swift in Sources */,
+				BF5A3B2220C8F4C800C10335 /* concat&flatMap.swift in Sources */,
 				BF46AC9B20BFE96200075640 /* Extension+Filter.swift in Sources */,
 				BF16333320C6586A00A2870E /* Extension+SHARE.swift in Sources */,
+				BF5A3B2A20C91D7D00C10335 /* subject.swift in Sources */,
+				BF5A3B2620C906CB00C10335 /* reflectOnReal.swift in Sources */,
 				BF46AC8F20BF9C5800075640 /* SupportCode.swift in Sources */,
 				BF46AC9320BFB7E600075640 /* Extension+Observable.swift in Sources */,
+				BF5A3B2820C914BE00C10335 /* observable.swift in Sources */,
+				BF5A3B2420C8F72200C10335 /* kit.swift in Sources */,
+				BF5A3B1E20C8D77000C10335 /* retryWhen.swift in Sources */,
 				BFDBC91820C110FD002ED266 /* Extension+Combine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

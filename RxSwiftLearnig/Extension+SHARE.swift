@@ -11,40 +11,8 @@ import RxSwift
 
 let bagShare = DisposeBag()
 
-// MARK: - sync programmer should make sure the call order
-func __🍚() { print("🍚") }
-func __😴() { print("😴") }
-func __打🐧() { print("打🐧") }
 
-// MARK: - async maybe closure, maybe notification to make sure the call order
-func __async🍚() { DispatchQueue.global().async { print("🍚") } }
-func __async😴() { DispatchQueue.global().asyncAfter(deadline: .now()+1) { print("😴") } }
-func __async打🐧() { DispatchQueue.global().async { print("打🐧") } }
 
-// MARK: - async Just chain the singal
-func __async🍚Signal() -> Observable<String> {
-  return Observable<String>.create({ observer -> Disposable in
-    observer.onNext("🍚")
-    return Disposables.create()
-  })
-}
-func __async😴Signal() -> Observable<String> {
-  return Observable<String>.create({ observer -> Disposable in
-    DispatchQueue.global().asyncAfter(deadline: .now()+1, execute: {
-      observer.onNext("😴")
-//      observer.onCompleted() // 🐠 concat没有这句，concat后面那个信号无法执行
-    })
-    return Disposables.create()
-  })
-}
-func __async打🐧Signal() -> Observable<String> {
-  return Observable<String>.create({ observer -> Disposable in
-    observer.onNext("打🐧")
-    return Disposables.create()
-  })
-}
-
-// MARK: - have a fun
 extension ViewController {
   func __generateColdSignal() -> Observable<String> {
     
@@ -59,13 +27,6 @@ extension ViewController {
         observer.onNext("XXX") // 🐠 Observable - 3: next after completed
         
         return Disposables.create()
-    }
-  }
-  
-  func reflectOnReal() {
-    example(of: "reflect on existing programming") {
-      __🍚(); __😴(); __打🐧()
-//      __🍚(); __打🐧(); __😴() // 🐠 reflect - 最常遇到的一个函数间关系：order
     }
   }
   
@@ -85,68 +46,8 @@ extension ViewController {
         .disposed(by: bagShare) // 🐠 Observable - 2: bag
     }
     
-    example(of: "Observable.Traits.Single") {
-      func _readText() throws -> String { return "blabla" }
-      func _readTextSignal(_ flag: Bool) -> Single<String> {
-        
-        return Single.create(subscribe: { single -> Disposable in
-          // SingleEvent // 🐠 Observable.Traits - 1: 看一下它的定义
-          if flag { single(.success("success")); single(.success("success2")) } // 🐠 Observable.Traits - 3 `single(.success("success2"))` is ignored
-          else { single(.error(NSError.init(domain: "error", code: -1, userInfo: nil))) }
-          
-          return Disposables.create()
-        })
-      }
-      
-      // 🐠 Observable.Traits - 2: 敲一下subscribe，发现指定了函数是onSuccess, onError
-      _ = _readTextSignal(true)
-        .subscribe(
-          onSuccess: {
-            print("✨✨\($0)✨✨")
-          },
-          onError: {
-            print("✨✨\($0)✨✨")
-          }
-        )
-        .disposed(by: bagShare)
-    }
     
-    example(of: "Observable.Traits.Completable") {
-      func __isOK() -> Bool { return true }
-      func __isOKSignal(_ flag: Bool) -> Completable {
-        return Completable.create(subscribe: { completable -> Disposable in
-          // CompletableEvent
-          if flag {
-            completable(.completed)
-          } else {
-            completable(.error(NSError.init(domain: "Error", code: -1, userInfo: nil)))
-          }
-          return Disposables.create()
-        })
-      }
-      
-      _ = __isOKSignal(true)
-        .subscribe(
-          onCompleted: {
-            print("✨✨completed✨✨")
-        },
-          onError: {
-            print("✨✨\($0)✨✨")
-        }
-        )
-        .disposed(by: bagShare)
-    }
-    
-    example(of: "Observable - Why need subject") {
-      let vari = Variable<Int>(1) // 🐠 Subject - 1看一下Variable的仅有的2个方法
-      vari.value = 2
-      vari.value = 3
-      vari.asObservable()
-        .subscribe(onNext: {
-          print("✨✨\($0)✨✨") // 🐠 Subject - 2 Guess what will be printed?
-        })
-        .disposed(by: bagShare)
-    }
+
   }
   
   func shareOperatorFilter() {
@@ -217,7 +118,6 @@ extension ViewController {
     }
     
     example(of: "✨✨flatMap-2✨✨") {
-      __async🍚(); __async😴(); __async打🐧() // 🐠不保证顺序
       
       DispatchQueue.global().asyncAfter(deadline: .now()+3) {
         __async🍚Signal()
