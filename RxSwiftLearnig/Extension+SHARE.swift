@@ -60,82 +60,14 @@ extension ViewController {
         .disposed(by: bagShare)
     }
     
-    example(of: "take(_:scheduler)") {
-      PublishSubject<Int>().asObservable()
-        .take(5, scheduler: MainScheduler.instance)
-        .subscribe(onNext: { _ in
-          print("onNext")
-        }, onError: {
-          print("Error:\($0)")
-        }, onCompleted: {
-          print("take(_:scheduler)✨✨Over!✨✨")
-        })
-        .disposed(by: bagShare)
-    }
     
-    example(of: "throttle") {
-      let textFieldVari = PublishSubject<String>()
-      func __quickInput(_ text: String, _ time: Double) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + time, execute: {
-          textFieldVari.onNext(text)
-        })
-      }
-      
-      textFieldVari.asObservable()
-        .throttle(8, scheduler: MainScheduler.instance)
-        .subscribe(onNext: {
-          print("throttle✨✨\($0)✨✨")
-        })
-        .disposed(by: bagShare)
-      
-      __quickInput("quick", 0.5)
-      __quickInput("quick input", 1)
-      __quickInput("quick input 1", 1.5)
-      __quickInput("quick input 1234", 2)
-    }
     
     example(of: "Scenario XXX") { // TODO:
     }
   }
   
   func shareOperatorTransform() {
-    example(of: "map") {
-      Observable<Int>.from([1, 2, 3])
-        .map { "✨String => \($0)✨" }
-        .subscribe(onNext: {
-          print($0)
-        })
-        .disposed(by: bagShare)
-    }
     
-    example(of: "✨✨flatMap-1✨✨") {
-      Observable<Int>.from([1, 2, 3])
-        .flatMap { return Observable<String>.just("✨String => \($0)✨") }
-        .subscribe(onNext: {
-          print($0)
-        })
-        .disposed(by: bagShare)
-    }
-    
-    example(of: "✨✨flatMap-2✨✨") {
-      
-      DispatchQueue.global().asyncAfter(deadline: .now()+3) {
-        __async🍚Signal()
-          .flatMap({ text -> Observable<String> in
-            print("\n✨✨✨✨✨✨✨✨✨✨\n")
-            print(text)
-            return __async😴Signal()
-          })
-          .flatMap({ text -> Observable<String> in
-            print(text)
-            return __async打🐧Signal()
-          })
-          .subscribe(onNext: {
-            print($0)
-          })
-          .disposed(by: bagShare)
-      }
-    }
   }
   
   func shareOperatorCombine() {
