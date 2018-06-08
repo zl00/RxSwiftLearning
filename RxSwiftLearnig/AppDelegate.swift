@@ -24,3 +24,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 }
 
+
+// MARK: - Learn
+//    learnObservables()
+//    learnFilter()
+//    learnSubject()
+//    learnTransforming()
+//    learnCombine()
+
+//    shareObservable()
+//    shareOperatorFilter()
+//    shareOperatorTransform()
+//    shareOperatorCombine()
+//    sharePitfalls()
+

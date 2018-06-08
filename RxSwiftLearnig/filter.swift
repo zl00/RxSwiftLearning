@@ -22,7 +22,7 @@ extension ViewController {
         .disposed(by: bag)
     }
     
-    example(of: "throttle") {
+    example(of: "throttle") { // 🐠见图片
       let textFieldVari = PublishSubject<String>()
       
       func __quickInput(_ text: String, _ time: Double) { // 延迟onNext

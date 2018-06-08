@@ -11,7 +11,7 @@ import RxSwift
 
 extension ViewController {
   
-  func linda_cold() {
+  func linda_observable() {
     
     func __observableIsCold() -> Observable<String> {
       
@@ -62,35 +62,49 @@ extension ViewController {
 //      })
     }
     
+    example(of: "observable subscribe multi times") {
+      let observable = __observableIsCold()
+//        .share(replay: 1, scope: SubjectLifetimeScope.forever) // MARK: 🐠
+      
+      observable
+        .subscribe()
+        .disposed(by: bag)
+      
+      observable
+        .subscribe()
+        .disposed(by: bag)
+    }
+    
     example(of: "Observable.Traits.Single") {
       func _readText() throws -> String { return "blabla" }
-      func _readTextObservable(_ flag: Bool) -> Single<String> {
+      func _readTextSingle() -> Single<String> {
         
         return Single.create(subscribe: { single -> Disposable in
-          // SingleEvent // 🐠 Observable.Traits - 1: 看一下它的定义
-          if flag { single(.success("success")); single(.success("success2")) } // 🐠 Observable.Traits - 3 `single(.success("success2"))` is ignored
-          else { single(.error(NSError.init(domain: "error", code: -1, userInfo: nil))) }
-          
+          // 🐠1 single.2个方法
+          single(.success("success"))
+          single(.success("success2")) // 🐠2 会打印success2吗？
           return Disposables.create()
         })
       }
       
-      // 🐠 Observable.Traits - 2: 敲一下subscribe，发现指定了函数是onSuccess, onError
-      _ = _readTextObservable(true)
+      // 🐠3 对比 _readTextSingle __observableIsCold的subscribe处。函数意图更为明确
+      _ = _readTextSingle()
         .subscribe(
-          onSuccess: {
-            print("✨✨\($0)✨✨")
-        },
-          onError: {
-            print("✨✨\($0)✨✨")
-        }
-        )
-        .disposed(by: bagShare)
+          onSuccess: { data in print("✨✨\(data)✨✨") },
+          onError: { error in print("✨✨\(error)✨✨") }
+        ).disposed(by: bagShare)
+      
+//      __observableIsCold()
+//        .subscribe(
+//          onNext: { _ in },
+//          onError: { _ in },
+//          onCompleted: {}
+//        ).disposed(by: bag)
     }
     
     example(of: "Observable.Traits.Completable") {
       func __isOK() -> Bool { return true }
-      func __isOKSignal(_ flag: Bool) -> Completable {
+      func __isOKCompletable(_ flag: Bool) -> Completable {
         return Completable.create(subscribe: { completable -> Disposable in
           // CompletableEvent
           if flag {
@@ -102,16 +116,18 @@ extension ViewController {
         })
       }
       
-      _ = __isOKSignal(true)
-        .subscribe(
-          onCompleted: {
-            print("✨✨completed✨✨")
-        },
-          onError: {
-            print("✨✨\($0)✨✨")
-        }
-        )
-        .disposed(by: bagShare)
+      _ = __isOKCompletable(true)
+        .subscribe( // 🐠 函数意图明确
+          onCompleted: { print("✨✨completed✨✨") },
+          onError: { print("✨✨\($0)✨✨") }
+        ).disposed(by: bagShare)
+      
+//      __observableIsCold()
+//        .subscribe(
+//          onNext: { _ in },
+//          onError: { _ in },
+//          onCompleted: {}
+//        ).disposed(by: bag)
     }
   }
 }

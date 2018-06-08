@@ -16,19 +16,16 @@ extension ViewController {
     example(of: "map") {
       Observable<Int>.from([1, 2, 3])
         .map { "✨String => \($0)✨" }
-        .subscribe(onNext: {
-          print($0)
-        })
+        .subscribe(onNext: { print($0) })
         .disposed(by: bagShare)
     }
     
     example(of: "✨✨flatMap-1✨✨") {
       Observable<Int>.from([1, 2, 3])
         .flatMap { return Observable<String>.just("✨String => \($0)✨") }
-        .subscribe(onNext: {
-          print($0)
-        }, onCompleted: {
-          print("completed!")
+        .subscribe(
+          onNext: { print($0) },
+          onCompleted: { print("completed!")
         })
         .disposed(by: bagShare)
     }
@@ -55,13 +52,12 @@ extension ViewController {
       
       student.onNext(Tom)
       Tom.score.onNext(85)
-//      Tom.score.onCompleted()
-      Tom.score.onError(MyError.default)
+      Tom.score.onCompleted()
+//      Tom.score.onError(MyError.default) // 🐠 onCompleted => onError, 断了
       
       student.onNext(Lucy)
       Lucy.score.onNext(95)
-//      Lucy.score.onCompleted()
-      Lucy.score.onError(MyError.default)
+      Lucy.score.onCompleted()
     }
     
   }

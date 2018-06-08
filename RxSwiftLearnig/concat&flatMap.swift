@@ -17,9 +17,7 @@ extension ViewController {
       __async🍚Signal()
         .concat(__async😴Signal())
         .concat(__async打🐧Signal())
-        .subscribe(onNext: {
-          print("=> \($0)")
-        })
+        .subscribe(onNext: { print("=> \($0)") })
         .disposed(by: bag)
     }
   }
@@ -39,18 +37,19 @@ extension ViewController {
       })
     }
     
+    func __consumeFood(_ food: String) -> Observable<String> {
+      return Observable<String>.create { observer -> Disposable in
+        
+        let consumer = __flavor[__random()]
+        observer.onNext("\(food) tastes \(consumer)")
+        return Disposables.create()
+      }
+    }
+    
     example(of: "flatMap") {
       __produceFoods()
-        .flatMap { product in
-          return Observable<String>.create { observer -> Disposable in
-            let consumer = __flavor[__random()]
-            observer.onNext("\(product) tastes \(consumer)")
-            return Disposables.create()
-          }
-        }
-        .subscribe(onNext: {
-          print($0)
-        })
+        .flatMap { food in return __consumeFood(food) }
+        .subscribe(onNext: { print($0) })
         .disposed(by: bag)
     }
   }
