@@ -61,6 +61,3 @@ func __async打🐧Signal() -> Observable<String> {
 func __random(_ n: Int = 4) -> Int { // 产生100以内的随机数
   return Int(arc4random()) % n
 }
-
-let __foods = ["🍨", "🍲", "🥗", "🍭"]
-let __flavor = ["😋", "🙄", "😭", "🤢"]

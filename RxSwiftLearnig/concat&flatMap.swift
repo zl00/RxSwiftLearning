@@ -24,6 +24,9 @@ extension ViewController {
   
   func linda_flatMap() { // MARK: producer - consumer
     
+    let __foods = ["🍨", "🍲", "🥗", "🍭"]
+    let __flavor = ["😋", "🙄", "😭", "🤢"]
+    
     func __produceFoods() -> Observable<String> {
       return Observable<String>.create({ observer -> Disposable in
         
